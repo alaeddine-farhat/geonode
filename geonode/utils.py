@@ -1931,10 +1931,10 @@ def safe_path_leaf(path):
     """A view that is not vulnerable to malicious file access."""
     base_path = settings.MEDIA_ROOT
     try:
-        validate_filepath(path, platform="auto")
+        validate_filepath(path, platform='auto')
         head, tail = ntpath.split(path)
         filename = tail or ntpath.basename(head)
-        validate_filename(filename, platform="auto")
+        validate_filename(filename, platform='auto')
     except ValidationError as e:
         logger.error(f"{e}")
         raise e
@@ -1942,6 +1942,5 @@ def safe_path_leaf(path):
     fullpath = os.path.normpath(os.path.join(head, filename))
     if not fullpath.startswith(base_path) or path != fullpath:
         raise GeoNodeException(
-            f"The provided path '{path}' is not safe. The file is outside the MEDIA_ROOT '{base_path}' base path!"
-        )
+            f"The provided path '{path}' is not safe. The file is outside the MEDIA_ROOT '{base_path}' base path!")
     return fullpath
