@@ -802,3 +802,4 @@ class DocumentViewTestCase(GeoNodeBaseTestSupport):
         # create original link to external
         doc.link_set.create(resource=doc.resourcebase_ptr, link_type="original", url="http://google.com/test")
         self.assertEqual(doc.download_url, "http://google.com/test")
+
