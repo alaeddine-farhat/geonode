@@ -43,6 +43,71 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 2.4.2\n"
 
+msgid "Organization"
+msgstr "Société"
+
+msgid "Voice"
+msgstr "Téléphone"
+
+msgid "Position"
+msgstr "Fonction"
+
+msgid "Country"
+msgstr "pays"
+
+#: snh_geonode/templates/geonode-mapstore-client/snippets/hero.html:49
+msgid "Direct access to geospatial data"
+msgstr "Un accès direct aux données geospatiales"
+
+#: snh_geonode/templates/geonode-mapstore-client/snippets/hero.html:50
+msgid "From e&p activities in Cameroon"
+msgstr "Issues des actitivites E&P du Cameroun"
+
+#: snh_geonode/templates/index.html:117
+msgid "Global Map"
+msgstr "Carte Générale"
+
+#: snh_geonode/templates/index.html:125
+msgid "Seismic"
+msgstr "Sismique"
+
+#: snh_geonode/templates/index.html:135
+msgid "Well"
+msgstr "Puit"
+
+#: snh_geonode/templates/index.html:163
+msgid "All rights reserved"
+msgstr "Tous droits réservés"
+
+#: snh_geonode/templates/news/new_list.html:15
+msgid "All News"
+msgstr "Toutes les actualités"
+
+#: snh_geonode/templates/news/new_list.html:81
+msgid "Archives"
+msgstr "Pas encore d'archives"
+
+msgid "Sign up"
+msgstr "S’inscrire"
+
+msgid "News"
+msgstr "Actualité"
+
+msgid "Learn more"
+msgstr "En savoir plus"
+
+msgid "Datasets"
+msgstr "Couches"
+
+msgid "Add user"
+msgstr "Ajouter utilisateur"
+
+msgid "Create group"
+msgstr "Créer groupe"
+
+msgid "Invite users"
+msgstr "Inviter utilisateurs"
+
 msgid "Request to download a resource"
 msgstr "Demander pour télécharger la ressource"
 
@@ -4077,9 +4142,6 @@ msgstr "Nom du poste"
 msgid "role or position of the responsible person"
 msgstr "rôle ou position de la personne responsable"
 
-msgid "Voice"
-msgstr "Téléphone"
-
 msgid ""
 "telephone number by which individuals can speak to the responsible "
 "organization or individual"
@@ -4124,8 +4186,6 @@ msgstr "Code postal"
 msgid "ZIP or other postal code"
 msgstr "ZIP ou autre code postal"
 
-msgid "Country"
-msgstr "Pays"
 
 msgid "country of the physical address"
 msgstr "pays de l'adresse physique"
@@ -4167,12 +4227,6 @@ msgstr "Profil de "
 
 msgid "Not provided."
 msgstr "Non fourni."
-
-msgid "Position"
-msgstr "Position"
-
-msgid "Organization"
-msgstr "Organisation"
 
 msgid "Not provided"
 msgstr "Non fournit"
@@ -4599,8 +4653,6 @@ msgstr "Basculer la navigation"
 
 #, fuzzy
 #| msgid "dataset"
-msgid "Datasets"
-msgstr "ensemble de données"
 
 msgid "People"
 msgstr "Personnes"
@@ -5225,8 +5277,6 @@ msgstr "Définissez votre mot de passe ici"
 msgid "Set password"
 msgstr "Définir le mot de passe"
 
-msgid "Sign up"
-msgstr "S'identifier"
 
 msgid ""
 "Sign up with one\n"
