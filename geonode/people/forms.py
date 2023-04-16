@@ -20,15 +20,79 @@
 import taggit
 
 from django import forms
+from allauth.account.forms import SignupForm, setup_user_email
 from django.contrib.auth import get_user_model
+from allauth.account.adapter import get_adapter
+from allauth.utils import set_form_field_order
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.utils.translation import ugettext as _
+from geonode.base.enumerations import COUNTRIES
+from dateutil.relativedelta import relativedelta
+from django.utils import timezone
 
 from captcha.fields import ReCaptchaField
 
 # Ported in from django-registration
 attrs_dict = {"class": "required"}
 
+class CustomSignupForm(SignupForm):
+    def __init__(self, *args, **kwargs):
+        super(CustomSignupForm, self).__init__(*args, **kwargs)
+        self.fields["organization"] = forms.CharField(
+            label=_("Organization"),
+            widget=forms.TextInput(
+                attrs={"placeholder": _("Organization"),
+                    "autocomplete": "organization"}
+            ),
+        )
+        self.fields["voice"] = forms.CharField(
+            label=_("Voice"),
+            widget=forms.TextInput(
+                attrs={"placeholder": _("Voice"), "autocomplete": "voice"}
+                ),
+            )
+        self.fields["position"] = forms.CharField(
+            label=_("Position"),
+            widget=forms.TextInput(
+                attrs={"placeholder": _("Position"),
+                                        "autocomplete": "position"}
+            ),
+        )
+        self.fields["country"] = forms.CharField(
+            label=_("Country"),
+            widget=forms.Select(
+                choices=COUNTRIES
+            ),
+        )
+        
+        self.field_order = [
+            "email",
+            "email2",  # ignored when not present
+            "username",
+            "voice",
+            "organization",
+            "position",
+            "country",
+            "password1",
+            "password2",  # ignored when not present
+        ]
+
+        if hasattr(self, "field_order"):
+            set_form_field_order(self, self.field_order)
+
+    def save(self, request):
+        adapter = get_adapter(request)
+        user = adapter.new_user(request)
+        user.organization = self.cleaned_data['organization']
+        user.voice = self.cleaned_data['voice']
+        user.position = self.cleaned_data['position']
+        user.country = self.cleaned_data['country']
+        user.expiration_date = timezone.now() + relativedelta(months=1)
+        adapter.save_user(request, user, self)
+        self.custom_signup(request, user)
+        # TODO: Move into adapter `save_user` ?
+        setup_user_email(request, user, [])
+        return user
 
 class AllauthReCaptchaSignupForm(forms.Form):
     captcha = ReCaptchaField()
@@ -85,4 +149,7 @@ class ProfileForm(forms.ModelForm):
             "is_superuser",
             "is_active",
             "date_joined",
+            "expiration_date",
+            "is_expirable"
         )
+

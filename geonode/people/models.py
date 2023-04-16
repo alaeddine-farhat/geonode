@@ -64,9 +64,22 @@ class Profile(AbstractUser):
         max_length=255,
         blank=True,
         null=True,
-        help_text=_("name of the responsible organization"),
-    )
-    profile = models.TextField(_("Profile"), null=True, blank=True, help_text=_("introduce yourself"))
+        help_text=_("name of the responsible organization"))
+    expiration_date = models.DateTimeField(
+        _("Expiration Date"),
+        blank=True,
+        null=True)
+    is_expirable = models.BooleanField(
+        _("expirable"),
+        default=True,
+        help_text=_(
+            "Designates whether this user should be treated as expirable. "
+        ))
+    profile = models.TextField(
+        _("Profile"),
+        null=True,
+        blank=True,
+        help_text=_("introduce yourself"))
     position = models.CharField(
         _("Position Name"),
         max_length=255,
