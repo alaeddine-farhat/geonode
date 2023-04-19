@@ -155,7 +155,8 @@ class Service(models.Model):
 
 class MonitoredResource(models.Model):
     TYPE_EMPTY = ''
-    TYPE_LAYER = 'dataset'
+    TYPE_DATASET = 'dataset'
+    TYPE_LAYER = 'layer'
     TYPE_MAP = 'map'
     TYPE_RESOURCE_BASE = 'resource_base'
     TYPE_DOCUMENT = 'document'
@@ -168,14 +169,16 @@ class MonitoredResource(models.Model):
               TYPE_URL, TYPE_OTHER,)
 
     TYPES = ((TYPE_EMPTY, _("No resource"),),
-             (TYPE_LAYER, _("Dataset"),),
+             (TYPE_DATASET, _("Dataset")),
+             (TYPE_LAYER, _("Layer"),),
              (TYPE_MAP, _("Map"),),
              (TYPE_RESOURCE_BASE, _("Resource base"),),
              (TYPE_DOCUMENT, _("Document"),),
              (TYPE_STYLE, _("Style"),),
              (TYPE_ADMIN, _("Admin"),),
              (TYPE_URL, _("URL"),),
-             (TYPE_OTHER, _("Other"),))
+             (TYPE_OTHER, _("Other"),)
+             )
 
     name = models.CharField(max_length=255, null=False, blank=True, default='')
     type = models.CharField(
