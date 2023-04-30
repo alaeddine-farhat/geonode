@@ -60,7 +60,7 @@ msgid "Direct access to geospatial data"
 msgstr "Un accès direct aux données geospatiales"
 
 #: snh_geonode/templates/geonode-mapstore-client/snippets/hero.html:50
-msgid "From e&p activities in Cameroon"
+msgid "From E&P activities in Cameroon"
 msgstr "Issues des actitivites E&P du Cameroun"
 
 #: snh_geonode/templates/index.html:117
