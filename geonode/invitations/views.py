@@ -83,8 +83,7 @@ class GeoNodeSendInvite(SendInvite):
 
     def send_invitation(self, invite, request, **kwargs):
         current_site = kwargs.pop('site', Site.objects.get_current())
-        invite_url = reverse('geonode.invitations:accept-invite',
-                             args=[invite.key])
+        invite_url = "/account/signup/?next=/"
         invite_url = request.build_absolute_uri(invite_url)
         ctx = kwargs
         ctx.update({
