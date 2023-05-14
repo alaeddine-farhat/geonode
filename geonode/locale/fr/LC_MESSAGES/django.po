@@ -85,7 +85,7 @@ msgstr "Toutes les actualités"
 
 #: snh_geonode/templates/news/new_list.html:81
 msgid "Archives"
-msgstr "Pas encore d'archives"
+msgstr "Archives"
 
 msgid "Sign up"
 msgstr "S’inscrire"
