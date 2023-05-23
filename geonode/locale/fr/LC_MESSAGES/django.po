@@ -99,6 +99,11 @@ msgstr "En savoir plus"
 msgid "Datasets"
 msgstr "Couches"
 
+
+msgid "Access History"
+msgstr "Historique d'accès"
+
+
 msgid "Add user"
 msgstr "Ajouter utilisateur"
 
